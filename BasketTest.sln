@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26430.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{A34CAD96-FC80-4BD4-B9DD-25AE1B416B72}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{F37A0C41-34F4-4D50-849A-BB442DC676AC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BasketTest", "src\BasketTest\BasketTest.csproj", "{73773E0F-D3DC-47CF-98EA-7068074D03A9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BasketTest.Tests", "tests\BasketTest.Tests\BasketTest.Tests.csproj", "{5F98D0A6-B82A-4167-B468-30268B81DA63}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{73773E0F-D3DC-47CF-98EA-7068074D03A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{73773E0F-D3DC-47CF-98EA-7068074D03A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{73773E0F-D3DC-47CF-98EA-7068074D03A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{73773E0F-D3DC-47CF-98EA-7068074D03A9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5F98D0A6-B82A-4167-B468-30268B81DA63}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5F98D0A6-B82A-4167-B468-30268B81DA63}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5F98D0A6-B82A-4167-B468-30268B81DA63}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5F98D0A6-B82A-4167-B468-30268B81DA63}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{73773E0F-D3DC-47CF-98EA-7068074D03A9} = {A34CAD96-FC80-4BD4-B9DD-25AE1B416B72}
+		{5F98D0A6-B82A-4167-B468-30268B81DA63} = {F37A0C41-34F4-4D50-849A-BB442DC676AC}
+	EndGlobalSection
+EndGlobal
