@@ -1,12 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BasketTest
 {
-    class Basket
+    public class Basket
     {
+        public IList<Product> Products { get; } = new List<Product>();
+
+        public void Add(Product product) => Products.Add(product);
+
+        public decimal CalculateValue() => Products.Sum(o => o.Value);
     }
 }
