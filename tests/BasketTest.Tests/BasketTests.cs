@@ -19,6 +19,17 @@ namespace BasketTest.Tests
                 _basket.Products.Count.Should().Be(1);
                 _basket.Products.Should().Contain(product);
             }
+
+            [Fact]
+            public void WhenVoucherIsAddedThenShouldContainVoucher()
+            {
+                var voucher = new GiftVoucher(10);
+
+                _basket.Add(voucher);
+
+                _basket.Vouchers.Count.Should().Be(1);
+                _basket.Vouchers.Should().Contain(voucher);
+            }
         }
 
         public class GivenBasketHasProducts

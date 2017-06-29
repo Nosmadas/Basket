@@ -2,19 +2,17 @@
 
 namespace BasketTest
 {
-    public class Product
+    public abstract class Voucher
     {
         public readonly decimal Value;
-        public readonly ProductCategory? Category;
 
         private const int _minValue = 0;
 
-        public Product(decimal value, ProductCategory? category = null)
+        public Voucher(decimal value)
         {
             if (value < _minValue) throw new ArgumentOutOfRangeException($"Value must be greater than {_minValue}.");
 
             Value = value;
-            Category = category;
         }
     }
 }
