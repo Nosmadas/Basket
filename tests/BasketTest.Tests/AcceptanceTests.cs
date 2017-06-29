@@ -38,8 +38,8 @@ namespace BasketTest.Tests
         [Fact]
         public void GivenProductsAndApplicableOfferVoucherThenCalculateBasketValue()
         {
-            var hat = new Product(10.50m);
-            var jumper = new Product(54.65m);
+            var hat = new Product(25);
+            var jumper = new Product(26);
             var headLight = new Product(3.50m, ProductCategory.HeadGear);
             var offerVoucher = new OfferVoucher(5m, 50m, ProductCategory.HeadGear);
 
@@ -54,8 +54,8 @@ namespace BasketTest.Tests
         [Fact]
         public void GivenProductsInapplicableOfferVocherAndApplicableGiftVoucherThenCalculateBasketValue()
         {
-            var hat = new Product(10.50m);
-            var jumper = new Product(54.65m);
+            var hat = new Product(25);
+            var jumper = new Product(26);
             var giftVoucher = new GiftVoucher(5m);
             var offerVoucher = new OfferVoucher(5m, 50m);
 
