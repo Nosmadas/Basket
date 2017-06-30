@@ -1,14 +1,25 @@
-﻿using FluentAssertions;
+﻿using BasketTest.Vouchers;
+using BasketTest.Vouchers.Validation;
+using FluentAssertions;
+using Moq;
 using Xunit;
 
 namespace BasketTest.Tests
 {
     public class BasketTests
     {
-        public class GivenBasketIsEmpty
-        {
-            private Basket _basket = new Basket();
+        private Basket _basket;
 
+        private Mock<IValueCalculator> _valueCalculator = new Mock<IValueCalculator>();
+        private Mock<IVoucherValidator> _voucherValidator = new Mock<IVoucherValidator>();
+
+        public BasketTests()
+        {
+            _basket = new Basket(_voucherValidator.Object, _valueCalculator.Object);
+        }
+
+        public class GivenBasketIsEmpty : BasketTests
+        { 
             [Fact]
             public void WhenProductIsAddedThenShouldContainProduct()
             {
@@ -29,20 +40,6 @@ namespace BasketTest.Tests
 
                 _basket.Vouchers.Count.Should().Be(1);
                 _basket.Vouchers.Should().Contain(voucher);
-            }
-        }
-
-        public class GivenBasketHasProducts
-        {
-            private Basket _basket = new Basket();
-
-            [Fact]
-            public void ThenCalculateTotal()
-            {
-                _basket.Add(new Product(10));
-                _basket.Add(new Product(20));
-
-                _basket.CalculateValue().Should().Be(30);
             }
         }
     }

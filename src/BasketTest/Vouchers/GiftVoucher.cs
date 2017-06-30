@@ -1,4 +1,4 @@
-﻿namespace BasketTest
+﻿namespace BasketTest.Vouchers
 {
     public class GiftVoucher : Voucher
     {

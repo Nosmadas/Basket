@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace BasketTest
+namespace BasketTest.Vouchers
 {
     public abstract class Voucher
     {

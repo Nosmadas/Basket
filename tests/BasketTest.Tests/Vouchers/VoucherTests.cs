@@ -1,4 +1,5 @@
-﻿using FluentAssertions;
+﻿using BasketTest.Vouchers;
+using FluentAssertions;
 using System;
 using Xunit;
 

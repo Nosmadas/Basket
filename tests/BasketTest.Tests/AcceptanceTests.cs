@@ -1,11 +1,25 @@
-﻿using FluentAssertions;
+﻿using BasketTest.Vouchers;
+using BasketTest.Vouchers.Validation;
+using FluentAssertions;
+using System.Collections.Generic;
 using Xunit;
 
 namespace BasketTest.Tests
 {
     public class AcceptanceTests
     {
-        private Basket _basket = new Basket();
+        private Basket _basket;
+
+        public AcceptanceTests()
+        {
+            var validationRules = new List<IValidationRule>
+            {
+                new SpendThresholdValidationRule(),
+                new NotApplicableCategoryRule()
+            };
+
+            _basket = new Basket(new VoucherValidator(validationRules), new ProductValueCalculator());
+        }
 
         [Fact]
         public void GivenProductsAndGiftVoucherThenCalculateBasketValue()
