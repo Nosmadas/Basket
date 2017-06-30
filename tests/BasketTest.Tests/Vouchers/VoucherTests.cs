@@ -7,24 +7,18 @@ namespace BasketTest.Tests
 {
     public class VoucherTests
     {
-        public class GivenPositiveValue
+        [Fact]
+        public void Constructor_GivenPositiveValueDoNotThrow()
         {
-            [Fact]
-            public void ThenDoNotThrow()
-            {
-                Action act = () => new GiftVoucher(10);
-                act.ShouldNotThrow();
-            }
+            Action act = () => new GiftVoucher(10m);
+            act.ShouldNotThrow();
         }
 
-        public class GivenNegativeValue
+        [Fact]
+        public void Constructor_GivenNegativeValueThrowArgumentOutOfRangeException()
         {
-            [Fact]
-            public void ThenThrowArgumentOutOfRangeException()
-            {
-                Action act = () => new GiftVoucher(-1);
-                act.ShouldThrow<ArgumentOutOfRangeException>();
-            }
+            Action act = () => new GiftVoucher(-1m);
+            act.ShouldThrow<ArgumentOutOfRangeException>();
         }
     }
 }

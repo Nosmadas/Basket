@@ -6,24 +6,18 @@ namespace BasketTest.Tests
 {
     public class ProductTests
     {
-        public class GivenPositiveValue
+        [Fact]
+        public void Constructor_GivenPositiveValueDoNotThrow()
         {
-            [Fact]
-            public void ThenDoNotThrow()
-            {
-                Action act = () => new Product(10);
-                act.ShouldNotThrow();
-            }
+            Action act = () => new Product(10m);
+            act.ShouldNotThrow();
         }
-         
-        public class GivenNegativeValue
+
+        [Fact]
+        public void Constructor_GivenNegativeValueThrowArgumentOutOfRangeException()
         {
-            [Fact]
-            public void ThenThrowArgumentOutOfRangeException()
-            {
-                Action act = () => new Product(-1);
-                act.ShouldThrow<ArgumentOutOfRangeException>();
-            }
+            Action act = () => new Product(-1m);
+            act.ShouldThrow<ArgumentOutOfRangeException>();
         }
     }
 }

@@ -7,71 +7,68 @@ namespace BasketTest.Tests
 {
     public class ProductValueCalculatorTests
     {
-        public class GivenProducts
+        private ProductValueCalculator _valueCalculator = new ProductValueCalculator();
+
+        [Fact]
+        public void CalculateValue_AddProductsAndCalculateSetTotalValue()
         {
-            private ProductValueCalculator _valueCalculator = new ProductValueCalculator();
-
-            [Fact]
-            public void ThenCalculateTotalValue()
+            var products = new[]
             {
-                var products = new[]
-                {
-                    new Product(10),
-                    new Product(20)
-                };
+                new Product(10),
+                new Product(20)
+            };
 
-                var total = _valueCalculator.CalculateValue(products, Enumerable.Empty<Voucher>());
+            var total = _valueCalculator.CalculateValue(products, Enumerable.Empty<Voucher>());
 
-                total.Should().Be(30);
-            }
+            total.Should().Be(30);
+        }
 
-            [Fact]
-            public void AndGiftVoucherThenDeductFromTotalValue()
+        [Fact]
+        public void CalculateValue_AddProductsAndGiftVoucherThenDeductFromTotalValue()
+        {
+            var products = new[]
             {
-                var products = new[]
-                {
-                    new Product(10),
-                    new Product(20)
-                };
+                new Product(10),
+                new Product(20)
+            };
 
-                var vouchers = new[] { new GiftVoucher(10) };
+            var vouchers = new[] { new GiftVoucher(10) };
 
-                var total = _valueCalculator.CalculateValue(products, vouchers);
+            var total = _valueCalculator.CalculateValue(products, vouchers);
 
-                total.Should().Be(20);
-            }
+            total.Should().Be(20);
+        }
 
-            [Fact]
-            public void AndOfferVoucherThenDeductFromTotalValue()
+        [Fact]
+        public void CalculateValue_AddProductsAndOfferVoucherThenDeductFromTotalValue()
+        {
+            var products = new[]
             {
-                var products = new[]
-   {
-                    new Product(10),
-                    new Product(20)
-                };
+                new Product(10),
+                new Product(20)
+            };
 
-                var vouchers = new[] { new OfferVoucher(10, 30) };
+            var vouchers = new[] { new OfferVoucher(10, 30) };
 
-                var total = _valueCalculator.CalculateValue(products, vouchers);
+            var total = _valueCalculator.CalculateValue(products, vouchers);
 
-                total.Should().Be(20);
-            }
+            total.Should().Be(20);
+        }
 
-            [Fact]
-            public void AndCategoryOfferVoucherThenDeductFromTotalValue()
+        [Fact]
+        public void CalculateValue_AddProductsAndCategoryOfferVoucherAndCategoryOfferVoucherThenDeductFromTotalValue()
+        {
+            var products = new[]
             {
-                var products = new[]
-                {
-                    new Product(5, ProductCategory.HeadGear),
-                    new Product(20)
-                };
+                new Product(5, ProductCategory.HeadGear),
+                new Product(20)
+            };
 
-                var vouchers = new[] { new OfferVoucher(10, 20, ProductCategory.HeadGear) };
+            var vouchers = new[] { new OfferVoucher(10, 20, ProductCategory.HeadGear) };
 
-                var total = _valueCalculator.CalculateValue(products, vouchers);
+            var total = _valueCalculator.CalculateValue(products, vouchers);
 
-                total.Should().Be(20);
-            }
+            total.Should().Be(20);
         }
     }
 }

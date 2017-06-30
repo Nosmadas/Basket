@@ -32,7 +32,7 @@ namespace BasketTest.Tests
             _basket.Add(jumper);
             _basket.Add(giftVoucher);
 
-            _basket.CalculateValue().Should().Be(60.15m);
+            _basket.TotalValue.Should().Be(60.15m);
         }
 
         [Fact]
@@ -46,7 +46,7 @@ namespace BasketTest.Tests
             _basket.Add(jumper);
             _basket.Add(offerVoucher);
 
-            _basket.CalculateValue().Should().Be(51m);
+            _basket.TotalValue.Should().Be(51m);
         }
 
         [Fact]
@@ -62,7 +62,7 @@ namespace BasketTest.Tests
             _basket.Add(headLight);
             _basket.Add(offerVoucher);
 
-            _basket.CalculateValue().Should().Be(51m);
+            _basket.TotalValue.Should().Be(51m);
         }
 
         [Fact]
@@ -78,7 +78,7 @@ namespace BasketTest.Tests
             _basket.Add(giftVoucher);
             _basket.Add(offerVoucher);
 
-            _basket.CalculateValue().Should().Be(41m);
+            _basket.TotalValue.Should().Be(41m);
         }
 
         [Fact]
@@ -92,7 +92,7 @@ namespace BasketTest.Tests
             _basket.Add(giftVoucher);
             _basket.Add(offerVoucher);
 
-            _basket.CalculateValue().Should().Be(55m);
+            _basket.TotalValue.Should().Be(55m);
         }
     }
 }
